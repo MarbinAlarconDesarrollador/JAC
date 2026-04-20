@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escrutinio JAC Colombia Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#004b87" id="theme-color-meta">
+</head>
+<body>
+    <div class="container">
+        <nav class="a11y-toolbar" aria-label="Herramientas de accesibilidad">
+            <button id="btn-a11y-speak" title="Leer en voz alta" aria-label="Leer resultados en voz alta">🔊</button>
+            <button id="btn-a11y-decrease" title="Reducir tamaño de letra" aria-label="Reducir letra">A-</button>
+            <button id="btn-a11y-increase" title="Aumentar tamaño de letra" aria-label="Aumentar letra">A+</button>
+            <button id="btn-a11y-theme" title="Cambiar contraste (Modo Oscuro/Claro)" aria-label="Alternar modo oscuro">🌗</button>
+        </nav>
+
+        <header>
+            <h1>Escrutinio JAC Portal del Valle</h1>
+            <p>Sistema por Cuociente y Residuo Mayor (Ley 2166)</p>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>1. Registro de Votación</h2>
+                <div class="stats-grid">
+                    <div class="input-group">
+                        <label>Votos en Blanco:</label>
+                        <input type="number" id="votosBlanco" min="0" value="7">
+                    </div>
+                    <div class="input-group">
+                        <label>Votos Nulos (Info):</label>
+                        <input type="number" id="votosNulos" min="0" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label>No Marcados (Info):</label>
+                        <input type="number" id="votosNoMarcados" min="0" value="0">
+                    </div>
+                </div>
+                <hr>
+                <div id="planchas-container"></div>
+                <button id="btn-add-plancha" class="btn-secondary">+ Añadir Plancha</button>
+            </section>
+
+            <button id="btn-calcular" class="btn-primary">Generar Escrutinio Final</button>
+
+            <section id="resultados" class="card hidden" aria-live="polite">
+                <h2>2. Resultados por Dignidades</h2>
+                <div id="stats-totales" class="stats-resumen"></div>
+                
+                <div class="table-container">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Cargo / Bloque</th>
+                                <th>Plancha Asignada</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-asignacion"></tbody>
+                    </table>
+                </div>
+
+                <div class="resumen-ecuacion">
+                    <h3>Detalle Técnico (Ecuaciones)</h3>
+                    <div id="res-list"></div>
+                </div>
+            </section>
+        </main>
+        <footer class="main-footer">
+            <p>Hecho por <strong>Marbin Alarcón</strong></p>
+            <p class="contact">📞 3205578471</p>
+            <p class="legal">Basado en la Ley 2166 de 2021 - Colombia</p>
+        </footer>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
